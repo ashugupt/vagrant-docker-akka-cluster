@@ -1,0 +1,19 @@
+# Cluster nodes
+[cluster]
+192.168.10.4
+192.168.10.5
+192.168.10.6
+
+# DB node
+[db]
+192.168.20.100
+
+# Group `multi` with all servers
+[multi:children]
+cluster
+db
+
+# Variables applied to all servers
+[multi:vars]
+ansible_ssh_user=vagrant
+ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key
